@@ -17,7 +17,7 @@ const AppContent: React.FC = () => {
   return location.pathname === '/' ? (
     <Layout title="Welcome to React with Vite">
       <main>
-        <h1>Welcome to <span className="text-gradient-orange">Companionn</span></h1>
+        <h1>Welcome to <span className="text-gradient-orange"><a href="https://www.ensembleautrement.fr/logement">Companionn</a></span></h1>
         <ThreeScene />
         <ul role="list" className="link-card-grid">
           <Card
