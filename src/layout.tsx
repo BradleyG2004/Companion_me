@@ -7,7 +7,7 @@ interface Props {
 
 const Layout: React.FC<Props> = ({ title, children }) => {
   return (
-    <div>
+    <div style={{paddingLeft:"550px",paddingTop:"100px"}}>
       <head>
         <title>{title}</title>
       </head>

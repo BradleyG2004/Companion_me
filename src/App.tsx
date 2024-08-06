@@ -5,7 +5,6 @@ import Layout from './layout';
 import Card from './components/card';
 import ThreeScene from './components/Threescene';
 import './global.css';
-import './App.css';
 import IntervenantLogIn from './pages/intervenant/intervenantlogin';
 import AdministrateurLogIn from './pages/administateur/adminlogin';
 import IntervenantSignIn from './pages/intervenant/intervenantsignin';

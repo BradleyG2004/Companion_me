@@ -1,74 +1,254 @@
+/* src/global.css */
+
+/* Tailwind CSS directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Variables CSS personnalisées */
 :root {
-    --accent: 136, 58, 234;
-    --accent-light: 243, 151, 19,1;
-    --accent-dark: 49, 10, 101;
-    --accent-gradient: linear-gradient(
-      45deg,
-      rgb(var(--accent)),
-      rgb(var(--accent-light)) 30%,
-      white 60%
-    );
-    --orange-gradient: linear-gradient(to right, orange, white); /* Nouveau */
+  --accent: 136, 58, 234;
+  --accent-light: 243, 151, 19, 1;
+  --accent-dark: 49, 10, 101;
+  --accent-gradient: linear-gradient(
+    45deg,
+    rgb(var(--accent)),
+    rgb(var(--accent-light)) 30%,
+    white 60%
+  );
+  --orange-gradient: linear-gradient(to right, orange, white);
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Styles de base */
+html {
+  background: white;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: #535bf2;
+}
+
+code {
+  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1em;
+  color: #23262d;
+}
+
+h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+p {
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:hover {
+  border-color: #646cff;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
   }
-  
-  html {
-    font-family: system-ui, sans-serif;
-    background: white;
+  a:hover {
+    color: #747bff;
   }
-  
-  code {
-    font-family:
-      Menlo,
-      Monaco,
-      Lucida Console,
-      Liberation Mono,
-      DejaVu Sans Mono,
-      Bitstream Vera Sans Mono,
-      Courier New,
-      monospace;
+  button {
+    background-color: #f9f9f9;
   }
-  
-  .link-card {
-    list-style: none;
-    display: flex;
-    padding: 1px;
-    background-color: white;
-    background-image: none;
-    background-size: 400%;
-    border-radius: 7px;
-    background-position: 100%;
-    transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-  }
-  
-  .link-card > a {
-    width: 100%;
-    text-decoration: none;
-    line-height: 1.4;
-    padding: calc(1.5rem - 1px);
-    border-radius: 8px;
-    color: #23262d;
-    background-color: white;
-    opacity: 0.8;
-  }
-  
-  h2 {
-    margin: 0;
-    font-size: 1.25rem;
-    transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-  
-  p {
-    margin-top: 0.5rem;
-    margin-bottom: 0;
-  }
-  
-  .link-card:is(:hover, :focus-within) {
-    background-position: 0;
-    background-image: var(--orange-gradient);
-  }
-  
-  .link-card:is(:hover, :focus-within) h2 {
-    color: rgb(var(--accent-light));
-  }
-  
+}
+
+/* Styles spécifiques aux composants */
+.link-card {
+  list-style: none;
+  display: flex;
+  padding: 1px;
+  background-color: white;
+  background-size: 400%;
+  border-radius: 7px;
+  background-position: 100%;
+  transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.link-card > a {
+  width: 100%;
+  text-decoration: none;
+  line-height: 1.4;
+  padding: calc(1.5rem - 1px);
+  border-radius: 8px;
+  color: #23262d;
+  background-color: white;
+  opacity: 0.8;
+}
+
+.link-card:is(:hover, :focus-within) {
+  background-position: 0;
+  background-image: var(--orange-gradient);
+}
+
+.link-card:is(:hover, :focus-within) h2 {
+  color: rgb(var(--accent-light));
+}
+
+.main {
+  margin: auto;
+  padding: 1rem;
+  width: 800px;
+  max-width: calc(100% - 2rem);
+  color: white;
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+.text-gradient-orange {
+  background-image: var(--orange-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 400%;
+  background-position: 0%;
+}
+
+.link-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+  gap: 2rem;
+  padding: 0;
+}
+
+.signin {
+  width: 1440px;
+  margin: 100px auto;
+  display: flex;
+  align-items: center;
+}
+
+.signin-left {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  background-color: #f39713;
+  min-width: 470px;
+  width: 470px;
+  height: 750px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 8px 2px rgba(123, 123, 123, 0.81);
+}
+
+.title-signin {
+  padding: 10px;
+  color: #ffffff;
+  margin-top: 20px;
+  font-size: 24px;
+  width: 100%;
+  height: 41px;
+}
+
+.title-logo {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.signin-right {
+  height: 616px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  min-width: 650px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 8px 2px rgba(123, 123, 123, 0.81);
+}
+
+.signin-right-title {
+  color: #f39713;
+  font-size: 48px;
+}
+
+.form-control {
+  width: 615px;
+  height: 64px;
+}
+
+.submitButton {
+  width: 258px;
+  height: 70px;
+  background-color: #f39713;
+  color: #ffffff;
+  cursor: pointer;
+  border-radius: 10px;
+  border: 0;
+  margin-top: 30px;
+}
+
+.submitButton:hover {
+  background-color: #dea24d;
+  color: black;
+}
+
+.form-footer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.form-footer2 {
+  display: flex;
+  justify-content: right;
+  width: 100%;
+  padding-right: 20px;
+  margin-top: 30px;
+}
