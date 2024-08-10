@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import companionnLogo from '../../../public/companionnChatBot.png';
-import { Button, FormControl, FormLabel, Input, InputGroup, InputLeftAddon, InputRightElement } from '@chakra-ui/react';
+import { Button,Input, InputGroup, InputLeftAddon, InputRightElement } from '@chakra-ui/react';
 
 const IntervenantLogIn: React.FC = () => {
     const [show, setShow] = useState(false);
