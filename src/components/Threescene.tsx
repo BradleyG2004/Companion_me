@@ -23,10 +23,10 @@ const Box: React.FC = () => {
 
 const ThreeBackground: React.FC = () => {
   return (
-    <Canvas style={{ position: 'absolute', top: 200, left: 100, width: '100%', height: '100%', zIndex: -1 }}>
+    <Canvas style={{ position: 'absolute', top: 400, left: 100, width: '100%', height: '100%', zIndex: -1 }}>
       <ambientLight intensity={0.5} />
       <directionalLight />
-      {/* <pointLight position={[10, 10, 10]} /> */}
+      <pointLight position={[10, 10, 10]} />
       <Box />
     </Canvas>
   );

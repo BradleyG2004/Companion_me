@@ -1,23 +1,32 @@
 // src/App.tsx
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import Layout from './layout';
 import Card from './components/card';
-import ThreeScene from './components/Threescene';
-import './global.css';
 import IntervenantLogIn from './pages/intervenant/intervenantlogin';
 import AdministrateurLogIn from './pages/administateur/adminlogin';
 import IntervenantSignIn from './pages/intervenant/intervenantsignin';
 import AdministrateurSignIn from './pages/administateur/adminsignin';
+import "preline/preline";
+import { IStaticMethods } from "preline/preline";
+import IntervenantHome from './pages/intervenant/intervenanthome';
+declare global {
+  interface Window {
+    HSStaticMethods: IStaticMethods;
+  }
+}
 
 const AppContent: React.FC = () => {
   const location = useLocation();
 
+  useEffect(() => {
+    window.HSStaticMethods.autoInit();
+  }, [location.pathname]);
+
   return location.pathname === '/' ? (
     <Layout title="Welcome to React with Vite">
-      <main>
-        <h1>Welcome to <span className="text-gradient-orange"><a href="https://www.ensembleautrement.fr/logement">Companionn</a></span></h1>
-        <ThreeScene />
+      <main style={{fontFamily: "Space Grotesk"}}>
+        <h1>Welcome to <u><span className="text-gradient-orange"><a href="https://www.ensembleautrement.fr/logement" style={{fontWeight:"bold"}}>Companionn</a></span></u></h1>
         <ul role="list" className="link-card-grid">
           <Card
             href="/intervenant-login"
@@ -48,6 +57,7 @@ const AppContent: React.FC = () => {
       <Route path="/administrateur-login" element={<AdministrateurLogIn />} />
       <Route path="/intervenant-signin" element={<IntervenantSignIn />} />
       <Route path="/administrateur-signin" element={<AdministrateurSignIn />} />
+      <Route path="/intervenant-home" element={<IntervenantHome />} />
       {/* Ajouter d'autres routes si nécessaire */}
       <Route path="*" element={<div>Page not found</div>} /> {/* Optionnel: Page 404 */}
     </Routes>
@@ -55,6 +65,7 @@ const AppContent: React.FC = () => {
 };
 
 const App: React.FC = () => {
+
   return (
     <Router>
       <AppContent />

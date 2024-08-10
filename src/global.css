@@ -182,7 +182,7 @@ button:focus-visible {
   background-color: #f39713;
   min-width: 470px;
   width: 470px;
-  height: 750px;
+  height: 550px;
   border-radius: 10px;
   box-shadow: 2px 2px 8px 2px rgba(123, 123, 123, 0.81);
 }
@@ -201,21 +201,6 @@ button:focus-visible {
   justify-content: center;
   align-items: flex-start;
   width: 100%;
-}
-
-.signin-right {
-  height: 616px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  min-width: 650px;
-  border-radius: 10px;
-  box-shadow: 2px 2px 8px 2px rgba(123, 123, 123, 0.81);
-}
-
-.signin-right-title {
-  color: #f39713;
-  font-size: 48px;
 }
 
 .form-control {
@@ -252,3 +237,97 @@ button:focus-visible {
   padding-right: 20px;
   margin-top: 30px;
 }
+.signin{
+    width: 1440px;
+    margin:100px auto;
+    display:flex;
+    align-items: center;
+  }
+  
+  /* .signin-left{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    background-color: #F39713;
+    min-width: 470px;
+    width: 470px;
+    height: 750px;
+    border-radius: 10px;
+    -webkit-box-shadow: 2px 2px 8px 2px rgba(123,123,123,0.81);
+    box-shadow: 2px 2px 8px 2px rgba(123,123,123,0.81);
+  } */
+  
+  .title-signin{
+    padding: 10px;
+    color: #FFFFFF;
+    margin-top: 20px;;
+    font-size: 24px;
+    width: 100%;
+    height: 41px;
+  }
+  
+  .title-logo{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+  }
+  
+  .signin-right{
+    height: 500px;
+    display:flex;
+    flex-wrap: wrap;
+    /* justify-content: center; */
+    padding-left: 50px;
+    width: 600px;
+    border-radius: 10px;
+    -webkit-box-shadow: 2px 2px 8px 2px rgba(123,123,123,0.81);
+    box-shadow: 2px 2px 8px 2px rgba(123,123,123,0.81);
+  }
+  
+  .signin-right-title{
+    color: #F39713;
+    font-size: 48px;
+  }
+  
+  .form-control{
+    width: 615px;
+    height: 64px;
+  }
+  
+  .submitButton{
+    width: 258px;
+    height: 70px;
+    background-color: #F39713;
+    color: #FFFFFF;
+    cursor:pointer;
+    border-radius: 10px;
+    border: 0;
+    margin-top: 30px;
+  }
+  
+  .submitButton:hover{
+    background-color: #dea24d;
+    color: black;
+  }
+  
+  .form-footer{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  .form-footer2{
+    display: flex;
+    justify-content: right;
+    width: 100%;
+    padding-right: 20px;
+    margin-top: 30px;
+  }
+
+  .plus-jakarta-sans-normal {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+  }
+    
