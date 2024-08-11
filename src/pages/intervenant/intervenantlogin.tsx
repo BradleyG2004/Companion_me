@@ -58,6 +58,8 @@ const IntervenantLogIn: React.FC = () => {
                 
                 // Stockage du token dans le localStorage
                 localStorage.setItem('authToken', data.token);
+                localStorage.setItem('surname', data.other.surname);
+                localStorage.setItem('name', data.other.name);
 
             } else {
                 const data = await response.json();

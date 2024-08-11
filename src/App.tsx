@@ -10,6 +10,10 @@ import AdministrateurSignIn from './pages/administateur/adminsignin';
 import "preline/preline";
 import { IStaticMethods } from "preline/preline";
 import IntervenantHome from './pages/intervenant/intervenanthome';
+import IntervenantVotes from './pages/intervenant/intervenantvotes';
+import IntervenantDocuments from './pages/intervenant/intervenantdocuments';
+import IntervenantCotisations from './pages/intervenant/intervenantcotisations';
+import IntervenantProfile from './pages/intervenant/intervenantprofile';
 declare global {
   interface Window {
     HSStaticMethods: IStaticMethods;
@@ -25,8 +29,8 @@ const AppContent: React.FC = () => {
 
   return location.pathname === '/' ? (
     <Layout title="Welcome to React with Vite">
-      <main style={{fontFamily: "Space Grotesk"}}>
-        <h1>Welcome to <u><span className="text-gradient-orange"><a href="https://www.ensembleautrement.fr/logement" style={{fontWeight:"bold"}}>Companionn</a></span></u></h1>
+      <main style={{ fontFamily: "Space Grotesk" }}>
+        <h1>Welcome to <u><span className="text-gradient-orange"><a href="https://www.ensembleautrement.fr/logement" style={{ fontWeight: "bold" }}>Companionn</a></span></u></h1>
         <ul role="list" className="link-card-grid">
           <Card
             href="/intervenant-login"
@@ -58,6 +62,10 @@ const AppContent: React.FC = () => {
       <Route path="/intervenant-signin" element={<IntervenantSignIn />} />
       <Route path="/administrateur-signin" element={<AdministrateurSignIn />} />
       <Route path="/intervenant-home" element={<IntervenantHome />} />
+      <Route path="/intervenant-votes" element={<IntervenantVotes />} />
+      <Route path="/intervenant-documents" element={<IntervenantDocuments />} />
+      <Route path="/intervenant-cotisations" element={<IntervenantCotisations />} />
+      <Route path="/intervenant-profile" element={<IntervenantProfile />} />
       {/* Ajouter d'autres routes si nécessaire */}
       <Route path="*" element={<div>Page not found</div>} /> {/* Optionnel: Page 404 */}
     </Routes>

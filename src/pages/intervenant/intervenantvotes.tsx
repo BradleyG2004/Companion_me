@@ -1,7 +1,8 @@
+// src/pages/AdministrateurLogIn.tsx
 import React, { useEffect, useState } from 'react';
-import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
-const IntervenantHome: React.FC = () => {
+const IntervenantVotes: React.FC = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const [name, setName] = useState<string | null>(null);
@@ -62,7 +63,7 @@ const IntervenantHome: React.FC = () => {
                 <div className="flex">
                     <div className="w-2/3">
                         <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto" style={{ borderWidth: "1px", borderColor: "orange", borderRadius: "20px", marginTop: "50px" }}>
-                            <span style={{ color: "orange", fontWeight: "bold", fontSize: "20px" }}>Missions Realisees</span><br></br><hr></hr><br></br>
+                            <span style={{ color: "orange", fontWeight: "bold", fontSize: "20px" }}>Votes Realises</span><br></br><hr></hr><br></br>
                             <div className="grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-6">
                                 <a className="group flex flex-col bg-white border shadow-sm rounded-xl hover:shadow-md focus:outline-none focus:shadow-md transition dark:bg-neutral-900 dark:border-neutral-800" href="#">
                                     <div className="p-4 md:p-5">
@@ -140,7 +141,7 @@ const IntervenantHome: React.FC = () => {
                         </div>
                         <br></br><br></br>
                         <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto" style={{ borderWidth: "1px", borderColor: "orange", borderRadius: "20px", marginTop: "50px" }}>
-                            <span style={{ color: "orange", fontWeight: "bold", fontSize: "20px" }}>Missions Ouvertes</span><br></br><hr></hr><br></br>
+                            <span style={{ color: "orange", fontWeight: "bold", fontSize: "20px" }}>Votes Ouvertes</span><br></br><hr></hr><br></br>
                             <div className="grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-6">
                                 <a className="group flex flex-col bg-white border shadow-sm rounded-xl hover:shadow-md focus:outline-none focus:shadow-md transition dark:bg-neutral-900 dark:border-neutral-800" href="#">
                                     <div className="p-4 md:p-5">
@@ -236,4 +237,4 @@ const IntervenantHome: React.FC = () => {
     );
 };
 
-export default IntervenantHome;
+export default IntervenantVotes;

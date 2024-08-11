@@ -1,7 +1,8 @@
+// src/pages/AdministrateurLogIn.tsx
 import React, { useEffect, useState } from 'react';
-import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
-const IntervenantHome: React.FC = () => {
+const IntervenantCotisations: React.FC = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const [name, setName] = useState<string | null>(null);
@@ -236,4 +237,4 @@ const IntervenantHome: React.FC = () => {
     );
 };
 
-export default IntervenantHome;
+export default IntervenantCotisations;
