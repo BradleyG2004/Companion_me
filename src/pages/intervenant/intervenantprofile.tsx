@@ -1,5 +1,5 @@
 import { Button, Input, InputGroup, InputRightElement } from '@chakra-ui/react';
-import axios from 'axios';
+import axios, { AxiosError, AxiosResponse } from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import ProfileImagee from '../../assets/7309707.jpg';
@@ -49,7 +49,7 @@ const IntervenantProfile: React.FC = () => {
             headers: {
                 Authorization: `Bearer ${authToken}`
             }
-        }).then(response => {
+        }).then((response: AxiosResponse) => {
             const { name, surname, profile, email } = response.data;
             setNom(name);
             setEmaill(email);
@@ -57,7 +57,7 @@ const IntervenantProfile: React.FC = () => {
             if (profile && profile.length > 0) {
                 setProfileImage(profile); // Pas besoin de réencoder, l'image est déjà encodée en base64
             }
-        }).catch(error => {
+        }).catch((error: AxiosError) => {
             console.error('Error fetching user data:', error);
         });
     }, [navigate]);
