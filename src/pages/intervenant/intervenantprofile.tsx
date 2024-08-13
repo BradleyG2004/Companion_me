@@ -60,7 +60,7 @@ const IntervenantProfile: React.FC = () => {
         }).catch((error: AxiosError) => {
             console.error('Error fetching user data:', error);
         });
-    }, [navigate]);
+    }, [navigate]); 
 
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
