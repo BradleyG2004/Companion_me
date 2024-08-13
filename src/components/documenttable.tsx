@@ -30,7 +30,6 @@ const DocumentTable: React.FC = () => {
   const userId = parseInt(localStorage.getItem('id') || '0', 10);
 
   useEffect(() => {
-    console.log(userId)
     fetchDocuments();
     fetchRepertories();
   }, []);
@@ -86,19 +85,24 @@ const DocumentTable: React.FC = () => {
     }
   };
 
-  const handleUpdateDocument = async () => {
-    if (!selectedDocument) return;
+  const handleUpdateDocument = async (documentId: number, newTitle: string | null, newRepertoryId: number | null) => {
     try {
+      const updatePayload: { id: number; title?: string; repertoryId?: number } = { id: documentId };
+
+      if (newTitle) {
+        updatePayload.title = newTitle;
+      }
+
+      if (newRepertoryId) {
+        updatePayload.repertoryId = newRepertoryId;
+      }
+
       const response = await fetch(`${import.meta.env.VITE_API_URL}/documents`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          id: selectedDocument.id,
-          title: newTitle || selectedDocument.title,
-          repertoryId: newRepertoryId || selectedDocument.repertory.id,
-        }),
+        body: JSON.stringify(updatePayload),
       });
 
       if (!response.ok) {
@@ -109,6 +113,8 @@ const DocumentTable: React.FC = () => {
       setMessageType('success');
       fetchDocuments(); // Refresh the documents list
       setSelectedDocument(null); // Clear the selection after update
+      setNewTitle(''); // Reset title input
+      setNewRepertoryId(null); // Reset repertory selection
     } catch (error) {
       console.error('Error updating document:', error);
       setMessage('Failed to update document.');
@@ -203,7 +209,7 @@ const DocumentTable: React.FC = () => {
                           />
                           <Button
                             colorScheme="green"
-                            onClick={handleUpdateDocument}
+                            onClick={() => handleUpdateDocument(document.id, newTitle, newRepertoryId)}
                             className="ml-2"
                           >
                             Save

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import companionnLogo from '../../../public/companionnChatBot.png';
-import { Button,Input, InputGroup, InputLeftAddon, InputRightElement } from '@chakra-ui/react';
+import { Button,Input, InputGroup, InputLeftAddon, InputRightElement, Spinner } from '@chakra-ui/react';
 
 const IntervenantLogIn: React.FC = () => {
     const [show, setShow] = useState(false);
@@ -60,6 +60,7 @@ const IntervenantLogIn: React.FC = () => {
                 localStorage.setItem('authToken', data.token);
                 localStorage.setItem('surname', data.other.surname);
                 localStorage.setItem('name', data.other.name);
+                localStorage.setItem('id', data.other.id);
 
             } else {
                 const data = await response.json();
@@ -90,7 +91,7 @@ const IntervenantLogIn: React.FC = () => {
                                 </div>
                                 <div className="ms-3">
                                     <p id="hs-toast-success-example-label" className="text-sm text-gray-700 dark:text-neutral-400">
-                                        Connexion réussie !
+                                        Connexion réussie ! <Spinner color='teal.500' />
                                     </p>
                                 </div>
                             </div>

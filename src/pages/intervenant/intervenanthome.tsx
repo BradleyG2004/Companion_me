@@ -52,7 +52,7 @@ const IntervenantHome: React.FC = () => {
                                 Cotisations
                             </Link>
                             <Link to="/intervenant-profile" className={`py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 ${location.pathname === '/intervenant-profile' ? 'border-black text-orange-500' : 'border-transparent text-gray-500'} hover:text-gray-800`}>
-                                <span style={{ color: "orange" }}>P</span>rofile
+                                <span style={{ color: "orange" }}>P</span>rofil
                             </Link>
                         </div>
                     </div>

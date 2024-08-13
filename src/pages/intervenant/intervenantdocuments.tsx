@@ -56,7 +56,7 @@ const IntervenantDocuments: React.FC = () => {
                                 Cotisations
                             </Link>
                             <Link to="/intervenant-profile" className={`py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 ${location.pathname === '/intervenant-profile' ? 'border-black text-orange-500' : 'border-transparent text-gray-500'} hover:text-gray-800`}>
-                                <span style={{ color: "orange" }}>P</span>rofile
+                                <span style={{ color: "orange" }}>P</span>rofil
                             </Link>
                         </div>
                     </div>
@@ -67,7 +67,7 @@ const IntervenantDocuments: React.FC = () => {
                     <div className="w-2/3">
                         <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto" style={{ borderWidth: "1px", borderColor: "orange", borderRadius: "20px", marginTop: "50px" }}>
                             <span style={{ color: "orange", fontWeight: "bold", fontSize: "20px" }}>Documents Deposes</span><br></br><hr></hr><br></br>
-                            <div>
+                            <div style={{height:"300px",overflow:"scroll"}}>
                                 <DocumentTable></DocumentTable>
                             </div>
                         </div>

@@ -14,6 +14,7 @@ import IntervenantVotes from './pages/intervenant/intervenantvotes';
 import IntervenantDocuments from './pages/intervenant/intervenantdocuments';
 import IntervenantCotisations from './pages/intervenant/intervenantcotisations';
 import IntervenantProfile from './pages/intervenant/intervenantprofile';
+import Ripple from './components/ripple';
 declare global {
   interface Window {
     HSStaticMethods: IStaticMethods;
@@ -76,6 +77,7 @@ const App: React.FC = () => {
 
   return (
     <Router>
+      {/* <Ripple /> */}
       <AppContent />
     </Router>
   );
