@@ -94,6 +94,7 @@ const IntervenantProfile: React.FC = () => {
                 'Content-Type': 'multipart/form-data',
             }
         }).then(response => {
+            console.log(response)
             alert("Profile updated successfully!");
             // Recharger la page ou mettre à jour l'image de profil affichée
             window.location.reload();
