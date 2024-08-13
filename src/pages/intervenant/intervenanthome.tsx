@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
+import { Link,useLocation, useNavigate } from 'react-router-dom';
 
 const IntervenantHome: React.FC = () => {
     const location = useLocation();

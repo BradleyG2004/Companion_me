@@ -3,8 +3,6 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import ProfileImagee from '../../assets/7309707.jpg';
-import { EditIcon } from '@chakra-ui/icons';
-import Ripple from "../../components/ripple";
 
 const IntervenantProfile: React.FC = () => {
     const location = useLocation();
@@ -31,10 +29,10 @@ const IntervenantProfile: React.FC = () => {
     const [isHovered, setIsHovered] = useState(false);
     const [isHoveredd, setIsHoveredd] = useState(false);
 
-    const [responseMessage, setResponseMessage] = useState('');
+    // const [responseMessage, setResponseMessage] = useState('');
 
-    const [showSuccessToast, setShowSuccessToast] = useState(false);
-    const [showErrorToast, setShowErrorToast] = useState(false);
+    // const [showSuccessToast, setShowSuccessToast] = useState(false);
+    // const [showErrorToast, setShowErrorToast] = useState(false);
 
 
     useEffect(() => {

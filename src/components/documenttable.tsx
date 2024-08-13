@@ -24,7 +24,6 @@ const DocumentTable: React.FC = () => {
   const [repertories, setRepertories] = useState<Repertory[]>([]);
   const [message, setMessage] = useState<string | null>(null);
   const [messageType, setMessageType] = useState<'success' | 'error' | undefined>(undefined);
-  const [selectedDocument, setSelectedDocument] = useState<Document | null>(null);
   const [newTitle, setNewTitle] = useState<string>('');
   const [newRepertoryId, setNewRepertoryId] = useState<number | null>(null);
   const userId = parseInt(localStorage.getItem('id') || '0', 10);
@@ -112,7 +111,6 @@ const DocumentTable: React.FC = () => {
       setMessage('Document updated successfully.');
       setMessageType('success');
       fetchDocuments(); // Refresh the documents list
-      setSelectedDocument(null); // Clear the selection after update
       setNewTitle(''); // Reset title input
       setNewRepertoryId(null); // Reset repertory selection
     } catch (error) {
