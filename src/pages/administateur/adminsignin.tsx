@@ -15,6 +15,7 @@ const AdministrateurSignIn: React.FC = () => {
   const [name, setNom] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [key, setKey] = useState('');
 
   // État pour le message de réponse
   const [responseMessage, setResponseMessage] = useState('');
@@ -26,11 +27,17 @@ const AdministrateurSignIn: React.FC = () => {
 
   useEffect(() => {
     let timer: NodeJS.Timeout;
-    if (showSuccessToast || showErrorToast) {
+    if (showSuccessToast) {
       timer = setTimeout(() => {
         setShowSuccessToast(false);
         setShowErrorToast(false);
-        navigate('/');  // Redirection vers la page d'accueil
+        navigate('/administrateur-login'); // Redirige après 5 secondes en cas de succès
+      }, 5000);  // 5000 ms = 5 secondes
+    }
+    if (showErrorToast) {
+      timer = setTimeout(() => {
+        setShowSuccessToast(false);
+        setShowErrorToast(false);
       }, 5000);  // 5000 ms = 5 secondes
     }
     return () => clearTimeout(timer);  // Nettoyage du timer
@@ -40,12 +47,12 @@ const AdministrateurSignIn: React.FC = () => {
     event.preventDefault();
 
     try {
-      const response = await fetch(`http://localhost:3000/signup`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/admin/signup`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ surname, name, email, password }),
+        body: JSON.stringify({ surname, name, email, password, key }),  // Inclure la clé dans les données
       });
 
       if (response.status === 201) {
@@ -114,7 +121,7 @@ const AdministrateurSignIn: React.FC = () => {
       <div className="signin-right col">
         <form onSubmit={handleSubmit} style={{ width: "100%", paddingRight: "40px", fontWeight: "bold" }}>
           <h2 style={{ marginTop: "10px", color: "orange", fontWeight: "bold", fontSize: "50px", marginLeft: "80px" }}>Enregistrement</h2><hr />
-          <h6 style={{ fontFamily: "Chakra Petch", marginLeft: "286px", fontWeight: "bold" }}>.<span style={{ color: "orange" }}>.</span>.<span style={{ color: "orange" }}>I</span>n<span style={{ color: "orange" }}>t</span>e<span style={{ color: "orange" }}>r</span>v<span style={{ color: "orange" }}>e</span>n<span style={{ color: "orange" }}>a</span>n<span style={{ color: "orange" }}>t</span></h6>
+          <h6 style={{ fontFamily: "Chakra Petch", marginLeft: "286px", fontWeight: "bold" }}>.<span style={{ color: "orange" }}>.</span>.<span style={{ color: "orange" }}>A</span>d<span style={{ color: "orange" }}>m</span>i<span style={{ color: "orange" }}>n</span></h6>
           <label className="form-label mt-4" htmlFor="First name" style={{ color: "orange", fontWeight: "bold" }}>Prenom</label>
           <Input
             placeholder='Entrez votre prenom'
@@ -152,11 +159,20 @@ const AdministrateurSignIn: React.FC = () => {
               </Button>
             </InputRightElement>
           </InputGroup>
-          <br /><br />
+          <label className="form-label mt-4" htmlFor="Key" style={{ color: "orange", fontWeight: "bold" }}>Key</label>
+          <InputGroup>
+            <InputLeftAddon>@</InputLeftAddon>
+            <Input
+              placeholder="Entrez votre clé"
+              required
+              onChange={(e) => setKey(e.target.value)}
+            />
+          </InputGroup>
           <button
             type="submit"
             style={{
               borderColor: "orange",
+              marginTop: "5px",
               width: "100px",
               height: "40px",
               color: isHovered ? "white" : "orange",  // Change la couleur du texte en blanc sur hover

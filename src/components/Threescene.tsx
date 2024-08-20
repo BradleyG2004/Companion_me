@@ -15,7 +15,7 @@ const Box: React.FC = () => {
 
   return (
     <mesh ref={meshRef}>
-      <boxGeometry args={[1, 1, 1]} />
+      <boxGeometry args={[2, 2, 2,4]} />
       <meshStandardMaterial color={'orange'} />
     </mesh>
   );
