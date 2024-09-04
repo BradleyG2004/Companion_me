@@ -2,14 +2,14 @@
 import { Input, NumberInput, NumberInputField, NumberInputStepper, NumberIncrementStepper, NumberDecrementStepper, Button, useToast, Select } from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import Joi from "joi";
+// import Joi from "joi";
 
-const voteValidationSchema = Joi.object({
-    description: Joi.string().required(),
-    starting: Joi.date().iso().min('now').required(),
-    ending: Joi.date().iso().greater(Joi.ref('starting')).required(),
-    rounds: Joi.number().min(1).max(3).required()
-}).options({ abortEarly: false });
+// const voteValidationSchema = Joi.object({
+//     description: Joi.string().required(),
+//     starting: Joi.date().iso().min('now').required(),
+//     ending: Joi.date().iso().greater(Joi.ref('starting')).required(),
+//     rounds: Joi.number().min(1).max(3).required()
+// }).options({ abortEarly: false });
 
 const AdminVotes: React.FC = () => {
     const location = useLocation();
@@ -55,17 +55,17 @@ const AdminVotes: React.FC = () => {
             rounds
         };
 
-        const { error } = voteValidationSchema.validate(voteData);
-        if (error) {
-            toast({
-                title: "Erreur de validation",
-                description: error.details.map((err) => err.message).join(', '),
-                status: "error",
-                duration: 5000,
-                isClosable: true,
-            });
-            return;
-        }
+        // const { error } = voteValidationSchema.validate(voteData);
+        // if (error) {
+        //     toast({
+        //         title: "Erreur de validation",
+        //         description: error.details.map((err) => err.message).join(', '),
+        //         status: "error",
+        //         duration: 5000,
+        //         isClosable: true,
+        //     });
+        //     return;
+        // }
 
         try {
             // Step 1: Create the vote
