@@ -26,7 +26,7 @@ const DocumentTable: React.FC = () => {
   const [messageType, setMessageType] = useState<'success' | 'error' | undefined>(undefined);
   const [newTitle, setNewTitle] = useState<string>('');
   const [newRepertoryId, setNewRepertoryId] = useState<number | null>(null);
-  const userId = parseInt(localStorage.getItem('id') || '0', 10);
+  // const userId = parseInt(localStorage.getItem('id') || '0', 10);
 
   useEffect(() => {
     fetchDocuments();

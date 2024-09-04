@@ -1,5 +1,5 @@
 // src/pages/AdministrateurLogIn.tsx
-import { Button, HStack, Input, useNumberInput } from '@chakra-ui/react';
+import { Button, HStack, Input} from '@chakra-ui/react';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -14,7 +14,7 @@ const AdminCotisations: React.FC = () => {
     const [paypalLink, setPaypalLink] = useState('');
     const [donations, setDonations] = useState<any[]>([]);
 
-    const handleAmountChange = (value: number) => setAmount(Number(value));
+    const handleAmountChange = (value: number|string) => setAmount(Number(value));
     const handleDescriptionChange = (e: { target: { value: React.SetStateAction<string>; }; }) => setDescription(e.target.value);
 
     const handleSubmit = async () => {
@@ -71,18 +71,18 @@ const AdminCotisations: React.FC = () => {
         }
     }, [navigate]);
 
-    const { getInputProps, getIncrementButtonProps, getDecrementButtonProps } =
-        useNumberInput({
-            step: 0.01,
-            defaultValue: 0.5,
-            min: 1,
-            max: 6,
-            precision: 2,
-        })
+    // const { getInputProps, getIncrementButtonProps, getDecrementButtonProps } =
+    //     useNumberInput({
+    //         step: 0.01,
+    //         defaultValue: 0.5,
+    //         min: 1,
+    //         max: 6,
+    //         precision: 2,
+    //     })
 
-    const inc = getIncrementButtonProps()
-    const dec = getDecrementButtonProps()
-    const input = getInputProps()
+    // const inc = getIncrementButtonProps()
+    // const dec = getDecrementButtonProps()
+    // const input = getInputProps()
 
     return (
         <>

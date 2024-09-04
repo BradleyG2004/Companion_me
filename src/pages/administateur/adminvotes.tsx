@@ -1,5 +1,5 @@
 // src/pages/AdministrateurLogIn.tsx
-import { Input, NumberInput, NumberInputField, NumberInputStepper, NumberIncrementStepper, NumberDecrementStepper, Button, useToast, Stack, Select } from '@chakra-ui/react';
+import { Input, NumberInput, NumberInputField, NumberInputStepper, NumberIncrementStepper, NumberDecrementStepper, Button, useToast, Select } from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Joi from "joi";
@@ -22,28 +22,28 @@ const AdminVotes: React.FC = () => {
     const [surname, setSurname] = useState<string | null>(null);
     const [selectedPropositionsByVote, setSelectedPropositionsByVote] = useState<{ [key: string]: string }>({});
 
-    const [isHovered, setIsHovered] = useState(false);
-    const [isHoveredd, setIsHoveredd] = useState(false);
+    // const [isHovered, setIsHovered] = useState(false);
+    // const [isHoveredd, setIsHoveredd] = useState(false);
 
     const now = new Date();
 
     const [starting, setStarting] = useState<string>('');
     const [ending, setEnding] = useState<string>('');
     const [rounds, setRounds] = useState<number>(1);
-    const [propositions, setPropositions] = useState<Proposition[]>([]);
+    // const [propositions, setPropositions] = useState<Proposition[]>([]);
     const [propositionss, setPropositionss] = useState<number>(2);
     const [description, setDescription] = useState<string>('');
     // const [votes, setVotes] = useState([]);
     // const [activeVoteId, setActiveVoteId] = useState(null);
     // const [activeRoundId, setActiveRoundId] = useState(null);
-    const [activeVoteId, setActiveVoteId] = useState<string | number | null>(null);
-    const [activeRoundId, setActiveRoundId] = useState<string | number | null>(null);
+    // const [activeVoteId, setActiveVoteId] = useState<string | number | null>(null);
+    // const [activeRoundId, setActiveRoundId] = useState<string | number | null>(null);
     interface Proposition {
         id: string | number;
         description: string;
     }
-    const [propositionChoices, setPropositionChoices] = useState<Proposition[]>([]);
-    const [selectedProposition, setSelectedProposition] = useState('');
+    // const [propositionChoices, setPropositionChoices] = useState<Proposition[]>([]);
+    // const [selectedProposition, setSelectedProposition] = useState('');
     const [propositionsByVote, setPropositionsByVote] = useState<{ [key: string]: Proposition[] }>({});
     const [roundIdByVote, setRoundIdByVote] = useState<{ [key: string]: number | string }>({});
 
@@ -227,9 +227,9 @@ const AdminVotes: React.FC = () => {
         starting: string;
         ending: string;
     }
-    interface Round {
-        id: string | number
-    }
+    // interface Round {
+    //     id: string | number
+    // }
     const remHours = (date: Date, hours: number): Date => {
         const newDate = new Date(date);
         newDate.setHours(newDate.getHours() - hours);
