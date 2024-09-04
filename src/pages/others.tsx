@@ -75,9 +75,9 @@ const Others: React.FC = () => {
         updateUserStatus(userId, true);
     };
 
-    const handleActivate = (userId: number) => {
-        updateUserStatus(userId, false);
-    };
+    // const handleActivate = (userId: number) => {
+    //     updateUserStatus(userId, false);
+    // };
 
     return (
         <>
@@ -142,7 +142,7 @@ const Others: React.FC = () => {
                                                                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">{new Date(user.createdAt).toLocaleDateString()}</td>
                                                                 <td className="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
                                                                     {user.isDeleted ? (
-                                                                        <button onClick={() => handleActivate(user.id)} className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-green-600 hover:text-green-800 focus:outline-none focus:text-green-800 disabled:opacity-50 disabled:pointer-events-none dark:text-green-500 dark:hover:text-green-400 dark:focus:text-green-400">Activate</button>
+                                                                        <button  className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-gray-400 disabled:opacity-50 disabled:pointer-events-none">Deleted</button>
                                                                     ) : (
                                                                         <button onClick={() => handleDelete(user.id)} className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 focus:outline-none focus:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400 dark:focus:text-blue-400">Delete</button>
                                                                     )}
