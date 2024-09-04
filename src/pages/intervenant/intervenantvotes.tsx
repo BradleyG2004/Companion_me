@@ -303,7 +303,7 @@ const IntervenantVotes: React.FC = () => {
             <header className="sticky top-0 inset-x-0 flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full text-sm" style={{ marginLeft: "400px", paddingTop: "10px", width: "1000px" }}>
                 <nav className="w-full bg-white border border-orange-400 rounded-[2rem] mx-2 py-2.5 md:flex md:items-center md:justify-between md:py-0 md:px-4 md:mx-auto" style={{ fontFamily: "Space Grotesk" }}>
                     <div className="relative flex justify-between items-center">
-                        <a className="flex-none rounded-md text-xl inline-block font-semibold focus:outline-none focus:opacity-80 absolute top-0 left-0 transform transition-transform duration-300 hover:translate-x-1 hover:translate-y-1" href="/admin-home" aria-label="Preline" style={{ color: "orange", zIndex: 10 }}>
+                        <a className="flex-none rounded-md text-xl inline-block font-semibold focus:outline-none focus:opacity-80 absolute top-0 left-0 transform transition-transform duration-300 hover:translate-x-1 hover:translate-y-1" href="/intervenant-home" aria-label="Preline" style={{ color: "orange", zIndex: 10 }}>
                             Companion
                         </a>
                         <a className="flex-none rounded-md text-xl inline-block font-semibold focus:outline-none focus:opacity-80" href="/intervenant-home" aria-label="Preline" style={{ color: "black" }}>
@@ -313,19 +313,19 @@ const IntervenantVotes: React.FC = () => {
 
                     <div id="hs-navbar-header-floating" className="hidden hs-collapse overflow-hidden transition-all duration-300 basis-full grow md:block" aria-labelledby="hs-navbar-header-floating-collapse">
                         <div className="flex flex-col md:flex-row md:items-center md:justify-end gap-2 md:gap-3 mt-3 md:mt-0 py-2 md:py-0 md:ps-7">
-                            <Link to="/admin-home" className={`py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 ${location.pathname === '/admin-home' ? 'border-black text-orange-500' : 'border-transparent text-gray-500'} hover:text-gray-800`}>
+                            <Link to="/intervenant-home" className={`py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 ${location.pathname === '/intervenant-home' ? 'border-black text-orange-500' : 'border-transparent text-gray-500'} hover:text-gray-800`}>
                                 Home
                             </Link>
-                            <Link to="/admin-votes" className={`py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 ${location.pathname === '/admin-votes' ? 'border-black text-orange-500' : 'border-transparent text-gray-500'} hover:text-gray-800`}>
+                            <Link to="/intervenant-votes" className={`py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 ${location.pathname === '/intervenant-votes' ? 'border-black text-orange-500' : 'border-transparent text-gray-500'} hover:text-gray-800`}>
                                 Votes
                             </Link>
-                            <Link to="/admin-documents" className={`py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 ${location.pathname === '/admin-documents' ? 'border-black text-orange-500' : 'border-transparent text-gray-500'} hover:text-gray-800`}>
+                            <Link to="/intervenant-documents" className={`py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 ${location.pathname === '/intervenant-documents' ? 'border-black text-orange-500' : 'border-transparent text-gray-500'} hover:text-gray-800`}>
                                 Documents
                             </Link>
-                            <Link to="/admin-cotisations" className={`py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 ${location.pathname === '/admin-cotisations' ? 'border-black text-orange-500' : 'border-transparent text-gray-500'} hover:text-gray-800`}>
+                            <Link to="/intervenant-cotisations" className={`py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 ${location.pathname === '/intervenant-cotisations' ? 'border-black text-orange-500' : 'border-transparent text-gray-500'} hover:text-gray-800`}>
                                 Cotisations
                             </Link>
-                            <Link to="/admin-profile" className={`py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 ${location.pathname === '/admin-profile' ? 'border-black text-orange-500' : 'border-transparent text-gray-500'} hover:text-gray-800`}>
+                            <Link to="/intervenant-profile" className={`py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 ${location.pathname === '/intervenant-profile' ? 'border-black text-orange-500' : 'border-transparent text-gray-500'} hover:text-gray-800`}>
                                 <span style={{ color: "orange" }}>P</span>rofil
                             </Link>
                         </div>
@@ -410,146 +410,7 @@ const IntervenantVotes: React.FC = () => {
                             </div>
                         </div>
                         <br></br><br></br>
-                        <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto" style={{ borderWidth: "1px", borderColor: "orange", borderRadius: "20px", marginTop: "50px" }}>
-                            <span style={{ color: "orange", fontWeight: "bold", fontSize: "20px" }}>Nouveau Vote</span><br></br><hr></hr><br></br>
-                            <div className="grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-1 gap-3 sm:gap-6">
-                                <table>
-                                    <tr>
-                                        <td>
-                                            <div className="relative flex justify-between items-center">
-                                                <a className="flex-none rounded-md text-xl inline-block font-semibold focus:outline-none focus:opacity-80 absolute top-0 left-0 transform transition-transform duration-300 hover:translate-x-1 hover:translate-y-1" aria-label="Preline" style={{ color: "orange", zIndex: 10 }}>
-                                                    VOTE
-                                                </a>
-                                                <a className="flex-none rounded-md text-xl inline-block font-semibold focus:outline-none focus:opacity-80" aria-label="Preline" style={{ color: "black" }}>
-                                                    VOTE
-                                                </a>
-                                            </div>
-                                            <div>Description:</div>
-                                            <Input
-                                                style={{ width: "70%" }}
-                                                placeholder='Entrez une description'
-                                                value={description}
-                                                onChange={(e) => setDescription(e.target.value)}
-                                            />
-                                        </td>
-                                        <td>
-                                            <td colSpan={2}>
-                                                <div>Rounds </div>
-                                                <NumberInput
-                                                    size='sm'
-                                                    maxW={16}
-                                                    value={rounds}
-                                                    min={1}
-                                                    max={3}
-                                                    onChange={(value) => handleRoundsChange(value)}
-                                                >
-                                                    <NumberInputField />
-                                                    <NumberInputStepper>
-                                                        <NumberIncrementStepper />
-                                                        <NumberDecrementStepper />
-                                                    </NumberInputStepper>
-                                                </NumberInput>
-                                            </td>
-                                            <td style={{ padding: "30px" }}>
-                                                <div>Propositions </div>
-                                                <NumberInput
-                                                    size='sm'
-                                                    maxW={16}
-                                                    value={propositionss}
-                                                    min={1}
-                                                    max={5}
-                                                    onChange={(value) => handlePropositionssChange(value)}
-                                                >
-                                                    <NumberInputField />
-                                                    <NumberInputStepper>
-                                                        <NumberIncrementStepper />
-                                                        <NumberDecrementStepper />
-                                                    </NumberInputStepper>
-                                                </NumberInput>
-                                            </td>
-                                        </td>
-                                    </tr>
-                                    <tr><td>
-                                        <div>Starting:</div>
-                                        <Input
-                                            type="datetime-local"
-                                            value={starting}
-                                            onChange={(e) => setStarting(e.target.value)}
-                                            style={{ borderColor: "orange", borderWidth: "2px", width: "70%" }}
-                                        />
-                                    </td>
-                                        <td>
-                                            <div>Ending:</div>
-                                            <Input
-                                                type="datetime-local"
-                                                value={ending}
-                                                onChange={(e) => setEnding(e.target.value)}
-                                                style={{ borderColor: "orange", borderWidth: "2px", width: "70%" }}
-                                            />
-                                        </td>
-                                    </tr>
-                                </table>
-                                <div className="relative flex justify-between items-center">
-                                    <a className="flex-none rounded-md text-xl inline-block font-semibold focus:outline-none focus:opacity-80 absolute top-0 left-0 transform transition-transform duration-300 hover:translate-x-1 hover:translate-y-1" aria-label="Preline" style={{ color: "orange", zIndex: 10 }}>
-                                        ROUNDS
-                                    </a>
-                                    <a className="flex-none rounded-md text-xl inline-block font-semibold focus:outline-none focus:opacity-80" aria-label="Preline" style={{ color: "black" }}>
-                                        ROUNDS
-                                    </a>
-                                </div>
-                                <div>
-                                    {dates.map((round, index) => (
-                                        <div style={{ borderWidth: "2px", borderColor: "orange", display: "inline-block", marginRight: "100px", padding: "10px", borderRadius: "10px" }}>
-                                            <React.Fragment key={index}>
-                                                <div>Starting Round {index + 1}:</div>
-                                                <Input
-                                                    type="datetime-local"
-                                                    value={round.starting}
-                                                    onChange={(e) => handleDateChange(index, 'starting', e.target.value)}
-                                                    style={{ borderColor: "orange", borderWidth: "2px" }}
-                                                />
-                                                <div>Ending Round {index + 1}:</div>
-                                                <Input
-                                                    type="datetime-local"
-                                                    value={round.ending}
-                                                    onChange={(e) => handleDateChange(index, 'ending', e.target.value)}
-                                                    style={{ borderColor: "orange", borderWidth: "2px" }}
-                                                />
-                                            </React.Fragment>
-                                        </div>
-                                    ))}
-                                </div>
-                                <div className="relative flex justify-between items-center">
-                                    <a className="flex-none rounded-md text-xl inline-block font-semibold focus:outline-none focus:opacity-80 absolute top-0 left-0 transform transition-transform duration-300 hover:translate-x-1 hover:translate-y-1" aria-label="Preline" style={{ color: "orange", zIndex: 10 }}>
-                                        PROPOSITIONS
-                                    </a>
-                                    <a className="flex-none rounded-md text-xl inline-block font-semibold focus:outline-none focus:opacity-80" aria-label="Preline" style={{ color: "black" }}>
-                                        PROPOSITIONS
-                                    </a>
-                                </div>
-                                <div>
-                                    {propos.map((round, index) => (
-                                        <div style={{ borderWidth: "2px", borderColor: "orange", display: "inline-block", marginRight: "100px", padding: "10px", borderRadius: "10px" }}>
-                                            <React.Fragment key={index}>
-                                                <div>Description Proposition {index + 1}:</div>
-                                                <Input
-                                                    value={round.description}
-                                                    onChange={(e) => handlePropositionChange(index, 'description', e.target.value)}
-                                                    style={{ borderColor: "orange", borderWidth: "2px" }}
-                                                />
-                                            </React.Fragment>
-                                        </div>
-                                    ))}
-                                </div>
-                                <br></br>
-                                <Button
-                                    style={{ borderColor: "orange", borderWidth: "7px" }}
-                                    onClick={handleSubmit}
-                                >
-                                    Submit
-                                </Button>
-                            </div>
-                        </div>
+                        
                     </div>
                     <div className="w-1/3 ml-4">
                         <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto" style={{ borderWidth: "1px", borderColor: "orange", borderRadius: "20px", marginTop: "50px", height: "calc(100% - 50px)", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
