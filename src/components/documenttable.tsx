@@ -186,8 +186,6 @@ const DocumentTable: React.FC = () => {
                       >
                         Download
                       </Button>
-                      {document.user.id === userId && (
-                        <>
                           <Select
                             placeholder="Change Repertory"
                             onChange={(e) => setNewRepertoryId(Number(e.target.value))}
@@ -219,8 +217,6 @@ const DocumentTable: React.FC = () => {
                           >
                             Delete
                           </Button>
-                        </>
-                      )}
                     </td>
                   </tr>
                 ))}

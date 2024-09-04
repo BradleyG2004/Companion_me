@@ -21,6 +21,7 @@ import AdminVotes from './pages/administateur/adminvotes';
 import AdminDocuments from './pages/administateur/admindocuments';
 import AdminCotisations from './pages/administateur/admincotisations';
 import AdminProfile from './pages/administateur/adminprofile';
+import Others from './pages/others';
 declare global {
   interface Window {
     HSStaticMethods: IStaticMethods;
@@ -80,6 +81,7 @@ const AppContent: React.FC = () => {
       <Route path="/intervenant-documents" element={<IntervenantDocuments />} />
       <Route path="/intervenant-cotisations" element={<IntervenantCotisations />} />
       <Route path="/intervenant-profile" element={<IntervenantProfile />} />
+      <Route path="/OTHERS" element={<Others/>} />
       {/* Ajouter d'autres routes si nécessaire */}
       <Route path="*" element={<div className="grid h-screen place-content-center bg-white px-4" style={{marginLeft:"650px"}}>
   <div className="text-center">

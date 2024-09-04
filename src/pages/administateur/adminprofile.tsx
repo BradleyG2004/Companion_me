@@ -440,6 +440,20 @@ const AdminProfile: React.FC = () => {
                                         </div>
                                     </div>
                                 </a>
+                                <Link to="/Others" className="group flex flex-col bg-white border shadow-sm rounded-xl hover:shadow-md focus:outline-none focus:shadow-md transition dark:bg-neutral-900 dark:border-neutral-800">
+                                    <div className="p-4 md:p-5">
+                                        <div className="flex justify-between items-center gap-x-3">
+                                            <div className="grow">
+                                                <h3 className="group-hover:text-blue-600 font-semibold text-gray-800 dark:group-hover:text-neutral-400 dark:text-neutral-200">
+                                                    Others
+                                                </h3>
+                                            </div>
+                                            <div>
+                                                <img style={{ height: "60px" }} src="https://cdn-icons-png.flaticon.com/128/8073/8073854.png"></img>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </Link>
 
                                 <a className="group flex flex-col bg-white border shadow-sm rounded-xl hover:shadow-md focus:outline-none focus:shadow-md transition dark:bg-neutral-900 dark:border-neutral-800" href="#" onClick={DeleteAccount}>
                                     <div className="p-4 md:p-5">
