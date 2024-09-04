@@ -2,15 +2,6 @@
 import { Input, NumberInput, NumberInputField, NumberInputStepper, NumberIncrementStepper, NumberDecrementStepper, Button, useToast, Select } from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-// import Joi from "joi";
-
-// const voteValidationSchema = Joi.object({
-//     description: Joi.string().required(),
-//     starting: Joi.date().iso().min('now').required(),
-//     ending: Joi.date().iso().greater(Joi.ref('starting')).required(),
-//     rounds: Joi.number().min(1).max(3).required()
-// }).options({ abortEarly: false });
-
 const AdminVotes: React.FC = () => {
     const location = useLocation();
     const navigate = useNavigate();
@@ -22,9 +13,6 @@ const AdminVotes: React.FC = () => {
     const [surname, setSurname] = useState<string | null>(null);
     const [selectedPropositionsByVote, setSelectedPropositionsByVote] = useState<{ [key: string]: string }>({});
 
-    // const [isHovered, setIsHovered] = useState(false);
-    // const [isHoveredd, setIsHoveredd] = useState(false);
-
     const now = new Date();
 
     const [starting, setStarting] = useState<string>('');
@@ -33,17 +21,10 @@ const AdminVotes: React.FC = () => {
     // const [propositions, setPropositions] = useState<Proposition[]>([]);
     const [propositionss, setPropositionss] = useState<number>(2);
     const [description, setDescription] = useState<string>('');
-    // const [votes, setVotes] = useState([]);
-    // const [activeVoteId, setActiveVoteId] = useState(null);
-    // const [activeRoundId, setActiveRoundId] = useState(null);
-    // const [activeVoteId, setActiveVoteId] = useState<string | number | null>(null);
-    // const [activeRoundId, setActiveRoundId] = useState<string | number | null>(null);
     interface Proposition {
         id: string | number;
         description: string;
     }
-    // const [propositionChoices, setPropositionChoices] = useState<Proposition[]>([]);
-    // const [selectedProposition, setSelectedProposition] = useState('');
     const [propositionsByVote, setPropositionsByVote] = useState<{ [key: string]: Proposition[] }>({});
     const [roundIdByVote, setRoundIdByVote] = useState<{ [key: string]: number | string }>({});
 
@@ -55,17 +36,6 @@ const AdminVotes: React.FC = () => {
             rounds
         };
 
-        // const { error } = voteValidationSchema.validate(voteData);
-        // if (error) {
-        //     toast({
-        //         title: "Erreur de validation",
-        //         description: error.details.map((err) => err.message).join(', '),
-        //         status: "error",
-        //         duration: 5000,
-        //         isClosable: true,
-        //     });
-        //     return;
-        // }
 
         try {
             // Step 1: Create the vote
@@ -227,9 +197,6 @@ const AdminVotes: React.FC = () => {
         starting: string;
         ending: string;
     }
-    // interface Round {
-    //     id: string | number
-    // }
     const remHours = (date: Date, hours: number): Date => {
         const newDate = new Date(date);
         newDate.setHours(newDate.getHours() - hours);
@@ -265,7 +232,7 @@ const AdminVotes: React.FC = () => {
                 }
             });
             const data = await response.json();
-            
+
             // Store propositions and roundId associated with this vote
             setPropositionsByVote(prevState => ({
                 ...prevState,
@@ -275,6 +242,9 @@ const AdminVotes: React.FC = () => {
                 ...prevState,
                 [voteId]: roundId
             }));
+
+            // Log the propositions for debugging
+            console.log('Fetched propositions for vote:', voteId, data);
         } catch (error) {
             console.error('Error fetching propositions:', error);
         }
@@ -292,7 +262,7 @@ const AdminVotes: React.FC = () => {
             });
             return;
         }
-    
+
         try {
             const response = await fetch(`${import.meta.env.VITE_API_URL}/choice`, {
                 method: 'POST',
@@ -305,7 +275,7 @@ const AdminVotes: React.FC = () => {
                     roundId: roundIdByVote[voteId], // Utilisation du roundId associé à ce vote
                 })
             });
-    
+
             if (response.ok) {
                 toast({
                     title: "Succès",
@@ -383,55 +353,55 @@ const AdminVotes: React.FC = () => {
                                                         </tr>
                                                     </thead>
                                                     <tbody className="divide-y divide-gray-200 dark:divide-neutral-700">
-                    {votes?.map((vote) => {
-                        const startDate = remHours(new Date(vote.starting), 2);
-                        const endDate = remHours(new Date(vote.ending), 2);
-                        const isActive = now >= startDate && now <= endDate;
+                                                        {votes?.map((vote) => {
+                                                            const startDate = remHours(new Date(vote.starting), 2);
+                                                            const endDate = remHours(new Date(vote.ending), 2);
+                                                            const isActive = now >= startDate && now <= endDate;
 
-                        return (
-                            <tr key={vote.id} className={isActive ? "bg-red-100" : "bg-gray-100"}>
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-neutral-800">
-                    {vote.description}
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
-                    {new Date(startDate).toLocaleString()}
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
-                    {new Date(endDate).toLocaleString()}
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
-                    {isActive ? "Running" : "Closed/Unstarted"}
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
-                {isActive ? (
-        <>
-            <Select
-                value={selectedPropositionsByVote[vote.id] || ""}
-                onChange={(e) => {
-                    const newSelection = e.target.value;
-                    setSelectedPropositionsByVote((prevState) => ({
-                        ...prevState,
-                        [vote.id]: newSelection,
-                    }));
-                }}
-            >
-                <option value="">Select a proposition</option>
-                {propositionsByVote[vote.id]?.map((prop: Proposition) => (
-                    <option key={prop.id} value={prop.id}>
-                        {prop.description}
-                    </option>
-                ))}
-            </Select>
-            <Button onClick={() => handleVote(vote.id)} style={{ padding: "5px" }}>🗳️</Button>
-        </>
-    ) : (
-        "---"
-    )}
-                </td>
-            </tr>
-                        );
-                    })}
-                </tbody>
+                                                            return (
+                                                                <tr key={vote.id} className={isActive ? "bg-red-100" : "bg-gray-100"}>
+                                                                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-neutral-800">
+                                                                        {vote.description}
+                                                                    </td>
+                                                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
+                                                                        {new Date(startDate).toLocaleString()}
+                                                                    </td>
+                                                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
+                                                                        {new Date(endDate).toLocaleString()}
+                                                                    </td>
+                                                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
+                                                                        {isActive ? "Running" : "Closed/Unstarted"}
+                                                                    </td>
+                                                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
+                                                                        {isActive ? (
+                                                                            <>
+                                                                                <Select
+                                                                                    value={selectedPropositionsByVote[vote.id] || ""}
+                                                                                    onChange={(e) => {
+                                                                                        const newSelection = e.target.value;
+                                                                                        setSelectedPropositionsByVote((prevState) => ({
+                                                                                            ...prevState,
+                                                                                            [vote.id]: newSelection,
+                                                                                        }));
+                                                                                    }}
+                                                                                >
+                                                                                    <option value="">Select a proposition</option>
+                                                                                    {propositionsByVote[vote.id]?.map((prop: Proposition) => (
+                                                                                        <option key={prop.id} value={prop.id}>
+                                                                                            {prop.description}
+                                                                                        </option>
+                                                                                    ))}
+                                                                                </Select>
+                                                                                <Button onClick={() => handleVote(vote.id)} style={{ padding: "5px" }}>🗳️</Button>
+                                                                            </>
+                                                                        ) : (
+                                                                            "---"
+                                                                        )}
+                                                                    </td>
+                                                                </tr>
+                                                            );
+                                                        })}
+                                                    </tbody>
                                                 </table>
                                             </div>
                                         </div>
